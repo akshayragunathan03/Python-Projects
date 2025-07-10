@@ -1,1 +1,24 @@
+from PIL import Image
+def resize_and_convert(image_path,output_path,new_height,new_width,new_format):
+    try :
+        with Image.open(image_path) as img:
+            print(f"Original Image size: {img.size}")
+
+            resized_img = img.resize((new_width,new_height))
+            print(f"Resized_image: {resized_img.size}")       
+
+            resized_img.save(output_path,new_format.upper())
+            print(f"Image saved as {output_path} in {new_format.upper()} format")
+
+    except Exception as e:
+        print(f"Error Occured: {e}")
+
+if __name__=="__main__":
+    image_path=input("Enter the Path of image file: ")
+    output_path=input("Enter output filename (e.g: output.jpg):")
+    new_width=int(input("Enter the Width: "))
+    new_height=int(input("Enter the Height: "))
+    new_format=input("Enter new format (e.g, jpg,png,webp):")
+
+    resize_and_convert(image_path,output_path,new_height,new_width,new_format)
 
