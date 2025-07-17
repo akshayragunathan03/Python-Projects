@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image                            #import the pillow 
 def resize_and_convert(image_path,output_path,new_height,new_width,new_format):
     try :
         with Image.open(image_path) as img:
